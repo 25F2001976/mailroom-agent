@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: public-mailroom-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    disk:
+      name: mailroom-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: AIPIPE_BASE_URL
+        value: https://aipipe.org/openrouter/v1
+      - key: AI_MODEL
+        value: openai/gpt-4.1-nano
+      - key: AIPIPE_TOKEN
+        sync: false
