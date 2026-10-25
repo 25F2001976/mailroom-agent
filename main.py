@@ -376,6 +376,7 @@ async def json_and_body_limits(request: Request, call_next):
 @app.post("/")
 @app.post("/v1")
 @app.post("/v2")
+@app.post("/v1/mailroom/actions")
 async def mailroom_root(request: Request):
     try:
         data = await request.json()
